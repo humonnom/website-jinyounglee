@@ -9,13 +9,12 @@ function Greeting(props) {
       <p>We will open soon as the Jinyoung Lee complete catalogue raisonné</p>
       <b>FOLLOW JINYOUNGLEE</b>
       <div css={ImageWrapper}>
-        <a href="https://www.instagram.com/reallyyoung/">
+        <a href='https://www.instagram.com/reallyyoung/'>
           <img
-            src="https://media.news.heni.com/socials/instagram.png"
-            target="_blank"
-            width="50"
-            height="50"
-          ></img>
+            src='https://media.news.heni.com/socials/instagram.png'
+            target='_blank'
+            width='50'
+            height='50'></img>
         </a>
       </div>
     </div>
@@ -26,19 +25,19 @@ export default Greeting;
 
 const GreetingStyle = css`
   height: 100vh;
-  width: 55vw;
+  width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-	h1{
-		font-weight: 700;
-	}
-	b{
-		font-size: 13px;
-	}
+  h1 {
+    font-weight: 700;
+  }
+  b {
+    font-size: 13px;
+  }
 `;
 
 const ImageWrapper = css`
-	margin-top: 20px;
+  margin-top: 20px;
 `;
