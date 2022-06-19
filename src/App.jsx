@@ -15,7 +15,7 @@ function App() {
 export default App
 
 const AppStyle = css`
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
