@@ -1,10 +1,25 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
-import { css, jsx } from "@emotion/react";
+import React, { useEffect, useState } from "react";
+import { css } from "@emotion/react";
 
-function Greeting(props) {
+function Greeting() {
+
+  const [width, setWidth] = useState(window.screen.width);
+  const updateWidthAndHeight = () => {
+    setWidth(window.screen.width);
+  };
+
+  useEffect(() => {
+    console.log(width)
+  },[width])
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWidthAndHeight);
+    return () => window.removeEventListener('resize', updateWidthAndHeight);
+  }, []);
+
   return (
-    <div css={GreetingStyle}>
+    <div css={GreetingStyle(width)}>
       <h1>The site is under construction</h1>
       <p>We will open soon as the Jinyoung Lee complete catalogue raisonné</p>
       <b>FOLLOW JINYOUNGLEE</b>
@@ -23,9 +38,7 @@ function Greeting(props) {
 
 export default Greeting;
 
-const GreetingStyle = css`
-  height: 100vh;
-  width: 500px;
+const GreetingCommonStyle = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,6 +51,19 @@ const GreetingStyle = css`
   }
 `;
 
+
 const ImageWrapper = css`
   margin-top: 20px;
 `;
+
+const GreetingStyle = (width) => {
+  if (width > 500)return css`
+    {CommonStyle}
+    width: 500px;
+  `;
+  else return css`
+    {CommonStyle}
+    width: 70%;
+    max-width: 300px;
+  `;
+} 
